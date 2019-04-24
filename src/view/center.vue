@@ -1,6 +1,6 @@
 <template>
-    <div class="index">
-        <div>index page</div>
+    <div class="center">
+        <div>center page</div>
         <footNav></footNav>
     </div>
 </template>
@@ -8,7 +8,7 @@
 <script>
     import footNav from '@/components/footNav'
     export default {
-        name: 'index',
+        name: 'center',
         data () {
             return {
                 msg: 'Welcome to Your Vue.js App'

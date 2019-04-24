@@ -1,6 +1,9 @@
 <template>
     <div class="footNav">
-        1111111
+        <van-tabbar v-model="active">
+            <van-tabbar-item icon="gem" @click="replace('/')">标签</van-tabbar-item>
+            <van-tabbar-item icon="friends" @click="replace('/center')">标签</van-tabbar-item>
+        </van-tabbar>
     </div>
 </template>
 
@@ -9,7 +12,12 @@ export default {
     name: 'footNav',
     data () {
         return {
-            msg: 'Welcome to Your Vue.js App'
+            active: 0
+        }
+    },
+    methods: {
+        replace (path) {
+            this.$router.replace(path)
         }
     }
 }
