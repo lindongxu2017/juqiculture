@@ -16,7 +16,7 @@ axios.interceptors.request.use(config => {
     return Promise.reject(error)
 });
 
-Vue.use(Vant, Uploader);
+Vue.use(Vant);
 
 Vue.prototype.axios = axios
 
