@@ -3,11 +3,22 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
+import qs from 'qs'
 
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
-Vue.use(Vant);
+axios.interceptors.request.use(config => {
+    if (config.method == 'post') config.data = qs.stringify(config.data);
+    return config
+}, error => {
+    return Promise.reject(error)
+});
+
+Vue.use(Vant, Uploader);
+
+Vue.prototype.axios = axios
 
 Vue.config.productionTip = false
 

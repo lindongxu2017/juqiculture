@@ -23,4 +23,9 @@ export default {
 img {
     content: normal !important;
 }
+html, body, #app {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
 </style>

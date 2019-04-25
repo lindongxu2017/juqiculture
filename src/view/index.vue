@@ -1,11 +1,13 @@
 <template>
     <div class="index">
+        <navBar :title="'首页'" :showleft="false"></navBar>
         <div>index page</div>
         <footNav></footNav>
     </div>
 </template>
 
 <script>
+    import navBar from '@/components/navBar'
     import footNav from '@/components/footNav'
     export default {
         name: 'index',
@@ -15,7 +17,7 @@
             }
         },
         components: {
-            footNav
+            footNav, navBar
         }
     }
 </script>
