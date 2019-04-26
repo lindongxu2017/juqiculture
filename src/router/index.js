@@ -1,6 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/view/index'
+// 精彩直播
+import liveBroadcast from '@/view/liveBroadcast'
+// 人气产品
+import popularProducts from '@/view/popular_products'
+// 赛事中心
+import competitionCenter from '@/view/competition_center'
+// 大赛主页
+import competitionIndex from '@/view/competition_index'
+
 import center from '@/view/center'
 import addchild from '@/view/add_child'
 import mymatch from '@/view/my_match'
@@ -8,6 +17,7 @@ import matchlicense from '@/view/match_license'
 import addresslist from '@/view/address'
 import addressEdit from '@/view/address_edit'
 import order from '@/view/order'
+
 
 Vue.use(Router)
 
@@ -17,6 +27,31 @@ export default new Router({
             path: '/',
             name: 'index',
             component: index
+        },
+        {
+            path: '/index',
+            name: 'index',
+            component: index
+        },
+        {
+            path: '/liveBroadcast',
+            name: 'liveBroadcast',
+            component: liveBroadcast
+        },
+        {
+            path: '/popularProducts',
+            name: 'popularProducts',
+            component: popularProducts
+        },
+        {
+            path: '/competitionIndex',
+            name: 'competitionIndex',
+            component: competitionIndex
+        },
+        {
+            path: '/competitionCenter',
+            name: 'competitionCenter',
+            component: competitionCenter
         },
         {
             path: '/center',
