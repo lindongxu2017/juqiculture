@@ -2,11 +2,14 @@
     <div class="index">
         <van-swipe :autoplay="3000" indicator-color="white">
             <van-swipe-item v-for="(item, index) in imglist" :key="index">
-                <img :src="item" />
+                <img :src="item.cover_url" />
             </van-swipe-item>
         </van-swipe>
+        <!-- <div>
+            <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg" />
+        </div> -->
         <div class="top_menu">
-            <div>
+            <div @click="go_competition_center">
                 <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg" />
                 <p>赛事中心</p>
             </div>
@@ -79,6 +82,37 @@
                     'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg',
                     'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg',
                 ]
+            }
+        },
+        mounted () {
+            this.get_banner();
+        },
+        methods: {
+            get_banner () {
+                this.fn.ajax('GET', {
+                    match_id:1,
+                    location_type: 1
+                }, this.api.index.banner, res => {
+                    this.imglist = res.data
+                    console.log(res);
+                })
+            },
+            get_hot_race () {
+                this.fn.ajax('GET', {
+                    location_type: 1
+                }, this.api.index.banner, res => {
+                    console.log(res);
+                })
+            },
+            get_hot_shop () {
+                this.fn.ajax('GET', {
+                    location_type: 1
+                }, this.api.index.banner, res => {
+                    console.log(res);
+                })
+            },
+            go_competition_center () {
+                this.$router.push({name: 'competitionCenter'})
             }
         },
         components: {

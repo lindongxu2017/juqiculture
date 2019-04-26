@@ -1,24 +1,12 @@
 <template>
-    <div class="popularProducts">
+    <div class="competitionCenter">
         <div class="banner" >
             <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg" />
             <p>比赛标题</p>
         </div>
         <ul>
-            <li>
-                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg" />
-                <p>比赛标题</p>
-            </li>
-            <li>
-                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg" />
-                <p>比赛标题</p>
-            </li>
-            <li>
-                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg" />
-                <p>比赛标题</p>
-            </li>
-            <li>
-                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg" />
+            <li v-for="(item, index) in list" :key="index">
+                <img :src="item." />
                 <p>比赛标题</p>
             </li>
         </ul>
@@ -27,7 +15,7 @@
 
 <script>
     export default {
-        name: 'popularProducts',
+        name: 'competitionCenter',
         data () {
             return {
                 msg: 'Welcome to Your Vue.js App',
@@ -35,6 +23,19 @@
                     'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg',
                     'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2500155165,4177020199&fm=15&gp=0.jpg',
                 ]
+            }
+        },
+        mounted () {
+            this.get_list()
+        },
+        methods: {
+            get_list () {
+                this.fn.ajax('GET', {
+                    match_id:1,
+                    location_type: 1
+                }, this.api.competition.center, res => {
+                    console.log(res);
+                })
             }
         }
     }
