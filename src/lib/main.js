@@ -36,8 +36,12 @@ export default {
 
     // 登录
 
-    login () {
-        location.href = 'http://dev-manage.haosailei.cn/wechat/redirect' + '?url=' + escape(location.href)
+    getWxCode () {
+        location.href = 'http://dev-manage.haosailei.cn/wechat/redirect' + '?url=' + escape(location.href) // getCode
+    },
+
+    login (code) {
+        console.log(code)
     },
 
     GetQueryString (name) {
