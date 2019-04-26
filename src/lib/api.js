@@ -4,6 +4,7 @@ export default {
         login: '/wechat/login'
     },
     center: {
+        order: '/wechat/user/my-order',
         matchlist: '/wechat/user/my-enroll-match',
         address: '/wechat/shipping-address'
     }
