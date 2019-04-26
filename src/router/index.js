@@ -9,7 +9,8 @@ import popularProducts from '@/view/popular_products'
 import competitionCenter from '@/view/competition_center'
 // 大赛主页
 import competitionIndex from '@/view/competition_index'
-
+// 榜单页
+import competitionList from '@/view/competition_list'
 import center from '@/view/center'
 import addchild from '@/view/add_child'
 import mymatch from '@/view/my_match'
@@ -47,6 +48,11 @@ export default new Router({
             path: '/competitionIndex',
             name: 'competitionIndex',
             component: competitionIndex
+        },
+        {
+            path: '/competitionList',
+            name: 'competitionList',
+            component: competitionList
         },
         {
             path: '/competitionCenter',
