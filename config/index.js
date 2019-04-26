@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/wechat': {
+            target: 'https://manage.haosailei.cn',  //目标接口域名
+            changeOrigin: true,  //是否跨域
+            pathRewrite: {
+                '^/wechat': '/wechat'   //重写接口
+            }
+        },
+    },
 
     // Various Dev Server settings
     host: '192.168.1.187', // can be overwritten by process.env.HOST
