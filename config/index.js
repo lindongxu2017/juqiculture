@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
         '/wechat': {
-            target: 'https://manage.haosailei.cn',  //目标接口域名
+            target: 'http://dev-manage.haosailei.cn',  //目标接口域名
             changeOrigin: true,  //是否跨域
             pathRewrite: {
                 '^/wechat': '/wechat'   //重写接口
