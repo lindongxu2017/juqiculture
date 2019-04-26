@@ -11,6 +11,13 @@ import competitionCenter from '@/view/competition_center'
 import competitionIndex from '@/view/competition_index'
 // 榜单页
 import competitionList from '@/view/competition_list'
+// 大赛报名
+import competitionRegistration from '@/view/competition_registration'
+// 选手主页
+import contestantPage from '@/view/contestant_page'
+// 选手礼物
+import contestantGift from '@/view/contestant_gift'
+
 import center from '@/view/center'
 import addchild from '@/view/add_child'
 import mymatch from '@/view/my_match'
@@ -55,9 +62,24 @@ export default new Router({
             component: competitionList
         },
         {
+            path: '/competitionRegistration',
+            name: 'competitionRegistration',
+            component: competitionRegistration
+        },
+        {
             path: '/competitionCenter',
             name: 'competitionCenter',
             component: competitionCenter
+        },
+        {
+            path: '/contestantPage',
+            name: 'contestantPage',
+            component: contestantPage
+        },
+        {
+            path: '/contestantGift',
+            name: 'contestantGift',
+            component: contestantGift
         },
         {
             path: '/center',
