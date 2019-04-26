@@ -9,6 +9,9 @@ import qs from 'qs'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import api from './lib/api.js'
+import fn from './lib/main.js'
+
 axios.interceptors.request.use(config => {
     if (config.method == 'post') config.data = qs.stringify(config.data);
     return config
@@ -19,6 +22,8 @@ axios.interceptors.request.use(config => {
 Vue.use(Vant);
 
 Vue.prototype.axios = axios
+Vue.prototype.api = api
+Vue.prototype.fn = fn
 
 Vue.config.productionTip = false
 
@@ -26,6 +31,9 @@ Vue.config.productionTip = false
 new Vue({
     el: '#app',
     router,
+    mounted () {
+        // this.fn.login()
+    },
     components: { App },
     template: '<App/>'
 })
