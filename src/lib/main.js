@@ -15,7 +15,7 @@ export default {
         }).then(res => {
             this.statusCode(res, fn)
         }).catch(res => {
-            if (res.toString() == 'Error: Request failed with status code 401') {
+            if (res.indexOf('401') > -1) {
                 localStorage.access_token == ''
                 location.href = location.host
             }
@@ -52,6 +52,10 @@ export default {
         } else {
             this.getWxCode()
         }
+    },
+
+    wxconfig () {
+        
     },
 
     GetQueryString (name) {

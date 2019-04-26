@@ -51,31 +51,42 @@
         },
         methods: {
             onLoad () {
-                let arr = ['', '', '', '', '']
-                console.log(this.active)
-                setTimeout(() => {
+                let page = 1
+                if (this.active == 0) {
+                    page = Math.ceil(this.list1.length / 10) + 1
+                } else if (this.active == 1) {
+                    page = Math.ceil(this.list2.length / 10) + 1
+                } else {
+                    page = Math.ceil(this.list3.length / 10) + 1
+                }
+
+                this.fn.ajax('GET', {
+                    orderable_type: this.active + 1,
+                    per_page: 10,
+                    page: page
+                }, this.api.center.order, res => {
                     if (this.active == 0) {
-                        this.list1 = this.list1.concat(arr)
                         this.loading1 = false
-                        if (this.list1.length >= 40) {
+                        this.list1 = this.list1.concat(res.data)
+                        if (res.data == 0 || res.data.length < 10) {
                             this.finished1 = true;
                         }
                     }
                     if (this.active == 1) {
-                        this.list2 = this.list2.concat(arr)
                         this.loading2 = false
-                        if (this.list2.length >= 40) {
+                        this.list2 = this.list2.concat(res.data)
+                        if (res.data == 0 || res.data.length < 10) {
                             this.finished2 = true;
                         }
                     }
                     if (this.active == 2) {
-                        this.list3 = this.list3.concat(arr)
                         this.loading3 = false
-                        if (this.list3.length >= 40) {
+                        this.list3 = this.list3.concat(res.data)
+                        if (res.data == 0 || res.data.length < 10) {
                             this.finished3 = true;
                         }
                     }
-                }, 1000)
+                })
             }
         },
         components: {
