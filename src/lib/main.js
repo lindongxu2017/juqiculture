@@ -40,8 +40,15 @@ export default {
         location.href = 'http://dev-manage.haosailei.cn/wechat/redirect' + '?url=' + escape(location.href) // getCode
     },
 
-    login (code) {
-        console.log(code)
+    login () {
+        let code = this.GetQueryString('code')
+        if (code) {
+            this.ajax('POST', {code}, api.wx.login, res => {
+                console.log(res)
+            })
+        } else {
+            this.getWxCode()
+        }
     },
 
     GetQueryString (name) {

@@ -32,12 +32,7 @@ new Vue({
     el: '#app',
     router,
     mounted () {
-        // let code = this.fn.GetQueryString('code')
-        // if (code) {
-            
-        // } else {
-        //     this.fn.getWxCode()
-        // }
+        this.fn.login()
     },
     components: { App },
     template: '<App/>'
