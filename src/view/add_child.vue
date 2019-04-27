@@ -2,7 +2,7 @@
     <div class="add-child">
         <navBar :title="'添加孩子'" :showleft="true"></navBar>
         <div class="upload-wrapper van-hairline--bottom">
-            <div class="circle">
+            <div class="circle" @click="chooseImg">
                 <van-icon name="photograph" />
             </div>
             <div class="tips">请上传头像</div>
@@ -101,6 +101,17 @@
             }
         },
         methods: {
+            chooseImg () {
+                console.log(111)
+                wx.chooseImage({
+                    count: 1, // 默认9
+                    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                    success: function (res) {
+                        var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+                    }
+                });
+            },
             selectBirthday () {
                 this.dateShow = true
             },
