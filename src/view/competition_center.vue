@@ -6,7 +6,7 @@
         </div>
         <ul>
             <li v-for="(item, index) in list" :key="index">
-                <img :src="item." />
+                <img :src="item" />
                 <p>比赛标题</p>
             </li>
         </ul>

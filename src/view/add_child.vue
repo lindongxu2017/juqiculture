@@ -1,17 +1,22 @@
 <template>
     <div class="add-child">
-        <navBar :title="'添加孩子'" :showleft="true"></navBar>
         <div class="upload-wrapper van-hairline--bottom">
-            <div class="circle" @click="chooseImg">
-                <van-icon name="photograph" />
-            </div>
+            <img class="add-child-icon" src="@/assets/plus.png" @click="chooseImg">
             <div class="tips">请上传头像</div>
         </div>
-        <van-cell-group>
-            <van-field v-model="field.username" required clearable label="孩子姓名" placeholder="请输入孩子姓名"/>
-            <van-field v-model="field.height" type="number" required clearable label="孩子身高" placeholder="请输入孩子身高"/>
-            <van-field v-model="field.weight" type="number" required clearable label="孩子体重" placeholder="请输入孩子体重"/>
-            <van-field v-model="field.birthday" @click="selectBirthday" required clearable readonly label="出生日期" placeholder="请选择出生日期"/>
+
+        <div class="content-title">基本信息</div>
+        <van-cell-group :border="false">
+            <van-field v-model="field.username" clearable placeholder="请填写孩子姓名">
+                <div slot="label">孩子姓名<span class="required">*</span></div>
+            </van-field>
+            <van-field v-model="field.height" clearable placeholder="请填写孩子身高">
+                <div slot="label">孩子身高<span class="required">*</span></div>
+            </van-field>
+            <van-field v-model="field.weight" type="number" clearable label="孩子体重" placeholder="请填写孩子体重"/>
+            <van-field v-model="field.birthday" @click="selectBirthday" clearable readonly label="出生日期" placeholder="请选择出生日期">
+                <img src="@/assets/picker-icon.png" @click="selectBirthday" class="right-icon" slot="right-icon">
+            </van-field>
             <div class="van-field-wrapper">
                 <div class="van-field-lable">性别</div>
                 <div class="van-field-control">
@@ -73,14 +78,13 @@
             <div class="cell-title">
                 <span>自我介绍</span>
             </div>
-            <textarea placeholder="请输入..."></textarea>
+            <textarea placeholder="请填写..."></textarea>
         </div>
 
     </div>
 </template>
 
 <script type="text/javascript">
-    import navBar from '@/components/navBar'
     export default {
         name: 'add-child',
         data () {
@@ -131,7 +135,7 @@
             }
         },
         components: {
-            navBar
+            
         }
     }
 </script>
@@ -150,21 +154,33 @@
 <style type="text/css" scoped>
     .add-child {
         min-height: 100%;
+        background-color: #EEEEEE;
     }
     .upload-wrapper {
         text-align: center;
         padding: 30px;
+        margin-bottom: 20px;
+        background-color: #fff;
     }
-    .circle {
+    .add-child-icon {
         width: 130px;
         height: 130px;
-        border-radius: 50%;
-        border: 1px solid #ebedf0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
         margin-bottom: 10px;
+    }
+    .content-title {
+        padding: 30px 30px 10px;
+        background-color: #fff;
+        font-size: 32px;
+        color: #108EE9;
+    }
+    .required {
+        color: #D0021B;
+        font-size: 28px;
+        margin-left: 8px;
+    }
+    .right-icon {
+        width: 28px;
+        height: 14px;
     }
     .tips {
         font-size: 28px;

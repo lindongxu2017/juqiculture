@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// 首页
 import index from '@/view/index'
+// 首页
+import welfareDetail from '@/view/public_welfare_detail'
 // 精彩直播
 import liveBroadcast from '@/view/liveBroadcast'
 // 人气产品
@@ -17,13 +20,25 @@ import competitionRegistration from '@/view/competition_registration'
 import contestantPage from '@/view/contestant_page'
 // 选手礼物
 import contestantGift from '@/view/contestant_gift'
-
+// 比赛
+import match from '@/view/match'
+// 商城
+import mall from '@/view/mall'
+// 产品详情
+import productDetail from '@/view/product_detail'
+// 个人中心
 import center from '@/view/center'
+// 添加子女
 import addchild from '@/view/add_child'
+// 我的大赛
 import mymatch from '@/view/my_match'
+// 赛事执照
 import matchlicense from '@/view/match_license'
+// 地址列表
 import addresslist from '@/view/address'
+// 编辑、添加地址
 import addressEdit from '@/view/address_edit'
+// 我的订单
 import order from '@/view/order'
 
 
@@ -37,9 +52,9 @@ export default new Router({
             component: index
         },
         {
-            path: '/index',
-            name: 'index',
-            component: index
+            path: '/welfareDetail/:id',
+            name: 'welfareDetail',
+            component: welfareDetail
         },
         {
             path: '/liveBroadcast',
@@ -80,6 +95,21 @@ export default new Router({
             path: '/contestantGift',
             name: 'contestantGift',
             component: contestantGift
+        },
+        {
+            path: '/match',
+            name: 'match',
+            component: match
+        },
+        {
+            path: '/mall',
+            name: 'mall',
+            component: mall
+        },
+        {
+            path: '/productDetail/:id',
+            name: 'productDetail',
+            component: productDetail
         },
         {
             path: '/center',

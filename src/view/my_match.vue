@@ -1,6 +1,5 @@
 <template>
     <div class="myMatch">
-        <navBar :title="'我的大赛'" :showleft="true"></navBar>
         <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
             <div class="match-list">
                 <match v-for="(item, index) in list" :key="index"></match>
@@ -11,7 +10,6 @@
 
 <script type="text/javascript">
     import match from '@/components/match_item'
-    import navBar from '@/components/navBar'
     export default {
         name: 'myMatch',
         data () {
@@ -41,7 +39,7 @@
             }
         },
         components: {
-            match, navBar
+            match
         }
     }
 </script>

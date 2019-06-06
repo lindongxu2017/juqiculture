@@ -18,10 +18,26 @@ module.exports = {
                 '^/wechat': '/wechat'   //重写接口
             }
         },
+        '/Api': {
+            // target: 'http://192.168.1.168:9102',  //目标接口域名
+            target: 'http://juqi.qht17.com',  //目标接口域名
+            changeOrigin: true,  //是否跨域
+            pathRewrite: {
+                '^/Api': '/Api'   //重写接口
+            }
+        },
+        '/Upload': {
+            // target: 'http://192.168.1.168:9102',  //目标接口域名
+            target: 'http://juqi.qht17.com',  //目标接口域名
+            changeOrigin: true,  //是否跨域
+            pathRewrite: {
+                '^/Upload': '/Upload'   //重写接口
+            }
+        }
     },
 
     // Various Dev Server settings
-    host: 'dev-h5.haosailei.cn', // can be overwritten by process.env.HOST
+    host: 'juqi.qht17.com', // can be overwritten by process.env.HOST
     port: 80, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,

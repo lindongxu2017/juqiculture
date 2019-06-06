@@ -7,10 +7,21 @@ import axios from 'axios'
 import qs from 'qs'
 
 import Vant from 'vant';
+import { Toast } from 'vant';
 import 'vant/lib/index.css';
+
+window.toast = Toast;
+
+import 'swiper/dist/css/swiper.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+Vue.use(VueAwesomeSwiper)
 
 import api from './lib/api.js'
 import fn from './lib/main.js'
+
+import '../static/swiper.min.css'
+import '../static/swiper.min.js'
 
 axios.interceptors.request.use(config => {
     if (config.method == 'post') config.data = qs.stringify(config.data);
@@ -18,6 +29,8 @@ axios.interceptors.request.use(config => {
 }, error => {
     return Promise.reject(error)
 });
+
+
 
 Vue.use(Vant);
 
@@ -33,6 +46,7 @@ new Vue({
     router,
     mounted () {
         this.fn.login()
+        this.fn.wxconfig()
     },
     components: { App },
     template: '<App/>'

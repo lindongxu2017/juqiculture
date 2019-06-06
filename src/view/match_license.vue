@@ -1,6 +1,5 @@
 <template>
     <div class="matchlicense">
-        <navBar :title="'xxx参赛证'" :showleft="true"></navBar>
         <div class="section">
             <div class="cell-title">报名信息</div>
             <div class="info">
@@ -109,7 +108,6 @@
 </template>
 
 <script type="text/javascript">
-    import navBar from '@/components/navBar'
     export default {
         name: 'matchlicense',
         data () {
@@ -118,7 +116,7 @@
             }
         },
         components: {
-            navBar
+
         }
     }
 </script>
